@@ -14,7 +14,7 @@ class AdminController extends Controller
      */
     public function index()
     {
-        return View('admin.login');
+        return view('admin.login');
     }
 
     public function auth(Request $request)
@@ -34,6 +34,11 @@ class AdminController extends Controller
             $request->session()->flash('error');
             return redirect('admin/index');
         }
+    }
+
+    public function dashboard(){
+
+        return view('admin.dashboard');
     }
 
 
