@@ -17,6 +17,7 @@
 <body>
 <div class="container">
 	<div class="d-flex justify-content-center h-100">
+        <a href="logout">Logout</a>
 	</div>
 </div>
 </body>

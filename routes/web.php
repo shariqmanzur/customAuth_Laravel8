@@ -25,4 +25,11 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/dashboard',[AdminController::class, 'dashboard']);
     //for password hashing
     Route::get('admin/encryptPassword', [AdminController::class, 'encryptPassword']);
+    // for Logout
+    Route::get('admin/logout', function(){
+        session()->forget('ADMIN_LOGIN');
+        session()->forget('ADMIN_ID');
+        session()->flash('msg3');
+        return redirect('admin/index');
+    });
 });

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Admin;
 use Illuminate\Http\Request;
-//use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Hash;
 
 class AdminController extends Controller
 {
@@ -31,12 +31,12 @@ class AdminController extends Controller
                 return redirect('admin/dashboard');
             }
             else{
-                $request->session()->flash('error1');
+                $request->session()->flash('msg1');
                 return redirect('admin/index');
             }
         }
         else{
-            $request->session()->flash('error2');
+            $request->session()->flash('msg2');
             return redirect('admin/index');
         }
     }
