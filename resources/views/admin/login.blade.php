@@ -50,6 +50,9 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
+					@if(Session::has('error'))
+					<script>alert("Invalid Credentials")</script>
+					@endif
 				</form>
 			</div>
 			<div class="card-footer">
