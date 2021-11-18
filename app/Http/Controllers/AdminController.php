@@ -31,7 +31,7 @@ class AdminController extends Controller
         }
         else{
 
-            $request->session()->flash('error');
+            $request->session()->flash('error1');
             return redirect('admin/index');
         }
     }
