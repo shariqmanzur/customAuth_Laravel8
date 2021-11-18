@@ -17,11 +17,8 @@ class AdminAuth
     public function handle(Request $request, Closure $next)
     {
         if($request->session()->has('ADMIN_LOGIN')){
-
         }
         else{
-
-            $request->session()->flash('msg0');
             return redirect('admin/index');
         }
 

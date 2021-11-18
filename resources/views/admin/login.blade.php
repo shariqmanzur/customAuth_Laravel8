@@ -50,17 +50,8 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
-					@if(Session::has('msg0'))
-					<script>alert("Access Denied!")</script>
-					@endif
-					@if(Session::has('msg1'))
-					<script>alert("Invalid Password!")</script>
-					@endif
-					@if(Session::has('msg2'))
-					<script>alert("Invalid Email!")</script>
-					@endif
-					@if(Session::has('msg3'))
-					<script>alert("Logout Successfull!")</script>
+					@if(Session::has('msg'))
+					<script>alert("{{ session('msg') }}")</script>
 					@endif
 				</form>
 			</div>

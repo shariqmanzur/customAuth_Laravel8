@@ -13,9 +13,14 @@ class AdminController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        return view('admin.login');
+        if($request->session()->has('ADMIN_LOGIN')){
+            return redirect('admin/dashboard');
+        }
+        else{
+            return view('admin.login');
+        }
     }
 
     public function auth(Request $request)
@@ -31,12 +36,12 @@ class AdminController extends Controller
                 return redirect('admin/dashboard');
             }
             else{
-                $request->session()->flash('msg1');
+                $request->session()->flash('msg', 'Invalid Password');
                 return redirect('admin/index');
             }
         }
         else{
-            $request->session()->flash('msg2');
+            $request->session()->flash('msg', "Invalid Email");
             return redirect('admin/index');
         }
     }
@@ -47,75 +52,8 @@ class AdminController extends Controller
     //     $x->save();
     // }
 
-    public function dashboard(){
-
+    public function dashboard()
+    {
         return view('admin.dashboard');
-    }
-
-
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
-    {
-        //
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Admin $admin)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Models\Admin  $admin
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Admin $admin)
-    {
-        //
     }
 }
