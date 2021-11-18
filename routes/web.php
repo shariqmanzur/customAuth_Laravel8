@@ -23,4 +23,6 @@ Route::post('admin/auth', [AdminController::class, 'auth'])->name('admin.auth');
 //authorize routing
 Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/dashboard',[AdminController::class, 'dashboard']);
+    //for password hashing
+    Route::get('admin/encryptPassword', [AdminController::class, 'encryptPassword']);
 });

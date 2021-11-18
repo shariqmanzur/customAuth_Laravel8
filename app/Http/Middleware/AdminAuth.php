@@ -21,7 +21,7 @@ class AdminAuth
         }
         else{
 
-            $request->session()->flash('error2');
+            $request->session()->flash('error0');
             return redirect('admin/index');
         }
 

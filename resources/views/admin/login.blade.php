@@ -50,11 +50,14 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
+					@if(Session::has('error0'))
+					<script>alert("Access Denied!")</script>
+					@endif
 					@if(Session::has('error1'))
-					<script>alert("Invalid Credentials")</script>
+					<script>alert("Invalid Password!")</script>
 					@endif
 					@if(Session::has('error2'))
-					<script>alert("Access Denied!")</script>
+					<script>alert("Invalid Email!")</script>
 					@endif
 				</form>
 			</div>
