@@ -14,8 +14,14 @@ class AdminController extends Controller
      */
     public function index()
     {
-        //
+        return View('admin.login');
     }
+
+    public function auth()
+    {
+        
+    }
+
 
     /**
      * Show the form for creating a new resource.
