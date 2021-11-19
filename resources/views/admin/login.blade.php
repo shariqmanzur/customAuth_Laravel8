@@ -36,13 +36,18 @@
 							<span class="input-group-text"><i class="fas fa-envelope"></i></span>
 						</div>
 						<input type="text" name="email" class="form-control" placeholder="email">
-						
+						@error('email')
+							<script>alert("{{ $message }}")</script>
+						@enderror
 					</div>
 					<div class="input-group form-group">
 						<div class="input-group-prepend">
 							<span class="input-group-text"><i class="fas fa-key"></i></span>
 						</div>
 						<input type="password" name="password" class="form-control" placeholder="password">
+						@error('password')
+							<script>alert("{{ $message }}")</script>
+						@enderror
 					</div>
 					<div class="row align-items-center remember">
 						<input type="checkbox">Remember Me
@@ -50,17 +55,8 @@
 					<div class="form-group">
 						<input type="submit" value="Login" class="btn float-right login_btn">
 					</div>
-					@if(Session::has('msg0'))
-					<script>alert("Access Denied!")</script>
-					@endif
-					@if(Session::has('msg1'))
-					<script>alert("Invalid Password!")</script>
-					@endif
-					@if(Session::has('msg2'))
-					<script>alert("Invalid Email!")</script>
-					@endif
-					@if(Session::has('msg3'))
-					<script>alert("Logout Successfull!")</script>
+					@if(Session::has('msg'))
+					<script>alert("{{ session('msg') }}")</script>
 					@endif
 				</form>
 			</div>

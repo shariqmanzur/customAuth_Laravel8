@@ -29,7 +29,6 @@ Route::group(['middleware'=>'admin_auth'], function(){
     Route::get('admin/logout', function(){
         session()->forget('ADMIN_LOGIN');
         session()->forget('ADMIN_ID');
-        session()->flash('msg3');
         return redirect('admin/index');
     });
 });
